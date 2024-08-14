@@ -1,6 +1,16 @@
 pipeline {
     agent any
     stages {
+        stage('Install Git') {
+            steps {
+                sh '''
+                    if ! git --version; then
+                        sudo apt-get update
+                        sudo apt-get install -y git
+                    fi
+                '''
+            }
+        }
         stage('Checkout') {
             steps {
                 git 'https://github.com/RP-TSOFT/prueba-devops-center'
