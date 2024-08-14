@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/RP-TSOFT/prueba-devops-center'
+                git branch: 'main','https://github.com/RP-TSOFT/prueba-devops-center'
             }
         }
         stage('PMD Analysis') {
