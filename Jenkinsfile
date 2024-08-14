@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Install Git') {
             steps {
-                sh '''
+                bat '''
                     if ! git --version; then
                         sudo apt-get update
                         sudo apt-get install -y git
@@ -18,7 +18,7 @@ pipeline {
         }
         stage('PMD Analysis') {
             steps {
-                sh 'pmd -d ./src -R rulesets/java/basic.xml -f html -r pmd-report.html'
+                bat 'pmd -d ./src -R rulesets/java/basic.xml -f html -r pmd-report.html'
             }
         }
         stage('Publish PMD Report') {
